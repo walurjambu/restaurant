@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavoria - Culinary Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .nav-scrolled { @apply bg-white shadow-md py-3; }
+        .menu-tab-active { @apply border-amber-600 text-amber-600; }
+        .menu-tab-inactive { @apply border-transparent text-gray-500 hover:text-gray-700; }
+        
+        /* Smooth transitions */
+        .transition-all { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #d97706; border-radius: 10px; }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+        .whatsapp-float span {
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <a href="https://wa.me/855969557557" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat Kami</span>
+    </a>
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 px-4 md:px-12 flex justify-between items-center text-white">
+        <div class="text-2xl font-extrabold tracking-tighter serif italic">Flavoria.</div>
+        
+        <!-- Desktop Links -->
+        <ul class="hidden md:flex space-x-8 font-medium">
+            <li><a href="#home" class="hover:text-amber-500 transition-colors">Beranda</a></li>
+            <li><a href="#about" class="hover:text-amber-500 transition-colors">Tentang</a></li>
+            <li><a href="#menu" class="hover:text-amber-500 transition-colors">Menu</a></li>
+            <li><a href="#gallery" class="hover:text-amber-500 transition-colors">Galeri</a></li>
+            <li><a href="#reservation" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-full transition-all">Pesan Meja</a></li>
+        </ul>
+
+        <!-- Mobile Toggle -->
+        <button class="md:hidden text-2xl" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-0 left-0 w-full h-screen bg-white text-slate-900 flex flex-col items-center justify-center space-y-8 text-xl font-bold transition-all">
+            <button class="absolute top-6 right-6 text-3xl" onclick="toggleMenu()">&times;</button>
+            <a href="#home" onclick="toggleMenu()">Beranda</a>
+            <a href="#about" onclick="toggleMenu()">Tentang</a>
+            <a href="#menu" onclick="toggleMenu()">Menu</a>
+            <a href="#reservation" onclick="toggleMenu()" class="bg-amber-600 text-white px-8 py-3 rounded-full">Pesan Meja</a>
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Hero Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+            <h5 class="text-amber-400 font-semibold tracking-widest uppercase mb-4 animate-bounce">Selamat Datang di Flavoria</h5>
+            <h1 class="text-5xl md:text-7xl font-bold serif mb-6 leading-tight">Rasakan Keajaiban Kuliner di Setiap Gigitan</h1>
+            <p class="text-lg md:text-xl mb-10 text-gray-200">Menyajikan hidangan autentik dengan bahan-bahan lokal pilihan yang diracik oleh koki kelas dunia.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-amber-600 hover:bg-amber-700 px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">Lihat Menu Kami</a>
+                <a href="#reservation" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 px-8 py-4 rounded-full font-bold transition-all">Pesan Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-4 md:px-12 bg-white">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1550966841-3ee32c3f8705?auto=format&fit=crop&w=800&q=80" alt="Kitchen" class="rounded-2xl shadow-2xl relative z-10">
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-amber-100 rounded-2xl -z-0"></div>
+            </div>
+            <div>
+                <h2 class="text-amber-600 font-bold tracking-widest uppercase mb-2">Cerita Kami</h2>
+                <h3 class="text-4xl font-bold serif mb-6">Dibuat Dengan Cinta Sejak Tahun 1995</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">Flavoria lahir dari kecintaan kami terhadap cita rasa tradisional yang dipadukan dengan teknik modern. Setiap hidangan yang kami sajikan adalah representasi dari dedikasi kami terhadap kualitas.</p>
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h4 class="text-2xl font-bold text-amber-600">100%</h4>
+                        <p class="text-sm text-gray-500 uppercase">Bahan Organik</p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-amber-600">25+</h4>
+                        <p class="text-sm text-gray-500 uppercase">Koki Profesional</p>
+                    </div>
+                </div>
+                <a href="#" class="text-amber-600 font-bold border-b-2 border-amber-600 pb-1 hover:text-amber-700 transition-all">Baca Lebih Lanjut</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-24 bg-slate-50 px-4 md:px-12">
+        <div class="max-w-6xl mx-auto text-center mb-16">
+            <h2 class="text-amber-600 font-bold tracking-widest uppercase mb-2">Menu Spesial</h2>
+            <h3 class="text-4xl font-bold serif mb-8">Pilihan Chef Hari Ini</h3>
+            
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-12">
+                <button onclick="filterMenu('all')" class="menu-tab pb-2 border-b-2 menu-tab-active font-bold transition-all">Semua</button>
+                <button onclick="filterMenu('breakfast')" class="menu-tab pb-2 border-b-2 menu-tab-inactive font-bold transition-all">Sarapan</button>
+                <button onclick="filterMenu('dinner')" class="menu-tab pb-2 border-b-2 menu-tab-inactive font-bold transition-all">Makan Malam</button>
+                <button onclick="filterMenu('drinks')" class="menu-tab pb-2 border-b-2 menu-tab-inactive font-bold transition-all">Minuman</button>
+            </div>
+        </div>
+
+        <div id="menu-container" class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Menu items will be injected by JavaScript -->
+        </div>
+    </section>
+
+    <section id="reservation" class="py-24 px-4 md:px-12 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-amber-600/10 rounded-full -mr-32 -mt-32"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold serif mb-4">Pesan Meja Anda</h3>
+                <p class="text-gray-400">Pastikan Anda mendapatkan tempat terbaik untuk pengalaman makan yang tak terlupakan.</p>
+            </div>
+            
+            <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST" class="grid md:grid-cols-2 gap-6 bg-white/5 p-8 rounded-2xl backdrop-blur-sm border border-white/10">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="c2d79451-673a-494b-90a0-cbf0e3e99fec">
+                <!-- Redirect to a custom URL (optional) or use JS to handle -->
+                <input type="hidden" name="subject" value="Reservasi Baru dari Flavoria Website">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <div class="space-y-2">
+                    <label class="text-sm font-medium text-gray-300">Nama Lengkap</label>
+                    <input type="text" name="name" required placeholder="Budi Santoso" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:ring-2 focus:ring-amber-500 outline-none text-white">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-medium text-gray-300">Alamat Email</label>
+                    <input type="email" name="email" required placeholder="budi@email.com" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:ring-2 focus:ring-amber-500 outline-none text-white">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-medium text-gray-300">Nomor WhatsApp / HP</label>
+                    <input type="tel" name="phone" required placeholder="081234567890" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:ring-2 focus:ring-amber-500 outline-none text-white">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-medium text-gray-300">Tanggal</label>
+                    <input type="date" name="date" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:ring-2 focus:ring-amber-500 outline-none text-white">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-medium text-gray-300">Jumlah Orang</label>
+                    <select name="guests" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:ring-2 focus:ring-amber-500 outline-none text-white">
+                        <option value="2">2 Orang</option>
+                        <option value="4">4 Orang</option>
+                        <option value="6">6 Orang</option>
+                        <option value="10+">Lebih dari 10</option>
+                    </select>
+                </div>
+                <div class="md:col-span-2 space-y-2">
+                    <label class="text-sm font-medium text-gray-300">Pesan Khusus (Opsional)</label>
+                    <textarea name="message" rows="4" placeholder="Contoh: Meja dekat jendela, alergi udang..." class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 focus:ring-2 focus:ring-amber-500 outline-none text-white"></textarea>
+                </div>
+                <div class="md:col-span-2">
+                    <button type="submit" id="submitBtn" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 rounded-lg transition-all shadow-lg shadow-amber-600/20">Konfirmasi Reservasi</button>
+                </div>
+            </form>
+            <div id="successMessage" class="hidden mt-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-center text-green-400">
+                Terima kasih! Permintaan reservasi Anda telah kami terima melalui email. Kami akan segera menghubungi Anda.
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white pt-20 pb-10 px-4 md:px-12 border-t border-slate-100">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-2">
+                <div class="text-3xl font-bold serif italic mb-6">Flavoria.</div>
+                <p class="text-gray-500 mb-8 max-w-sm">Membawa standar baru dalam industri kuliner dengan memadukan tradisi dan inovasi untuk kepuasan pelanggan kami.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center hover:bg-amber-600 hover:text-white transition-all"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase tracking-widest text-sm">Jam Operasional</h4>
+                <ul class="text-gray-500 space-y-2 text-sm">
+                    <li>Senin - Jumat: 10:00 - 22:00</li>
+                    <li>Sabtu: 09:00 - 23:00</li>
+                    <li>Minggu: 09:00 - 21:00</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6 uppercase tracking-widest text-sm">Kontak Kami</h4>
+                <ul class="text-gray-500 space-y-4 text-sm">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt mt-1 text-amber-600"></i>
+                        Jl. Kuliner No. 123, Jakarta Selatan
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-phone text-amber-600"></i>
+                        +62 21 1234 5678
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-amber-600"></i>
+                        hello@flavoria.com
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-100 pt-8 text-center text-gray-400 text-sm">
+            &copy; 2024 Flavoria Restaurant. Dibuat dengan sepenuh hati.
+        </div>
+    </footer>
+
+    <script>
+        const menuItems = [
+            { id: 1, name: "Ayam Goreng Spesial", price: "Rp 45k", category: "dinner", image: "https://gawvfnziownlvhrgtmgq.supabase.co/storage/v1/object/public/restaurant/ayam.webp", desc: "Ayam goreng bumbu rempah autentik dengan tekstur juicy di dalam." },
+            { id: 2, name: "Ayam Penyet Cabe Ijo", price: "Rp 38k", category: "dinner", image: "https://gawvfnziownlvhrgtmgq.supabase.co/storage/v1/object/public/restaurant/penyet.jpeg", desc: "Ayam penyet dengan sambal khas yang pedas dan menggugah selera." },
+            { id: 3, name: "Sate Khas Flavoria", price: "Rp 55k", category: "dinner", image: "https://gawvfnziownlvhrgtmgq.supabase.co/storage/v1/object/public/restaurant/sate.jpg", desc: "Sate pilihan dengan bumbu kacang rahasia dan daging yang empuk." },
+            { id: 4, name: "Soto Segar Nusantara", price: "Rp 35k", category: "breakfast", image: "https://gawvfnziownlvhrgtmgq.supabase.co/storage/v1/object/public/restaurant/soto.jpeg", desc: "Kuah soto yang bening dan kaya rasa, sempurna untuk mengawali hari." },
+            { id: 5, name: "Signature Iced Latte", price: "Rp 35k", category: "drinks", image: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=400&q=80", desc: "Campuran biji kopi arabika premium dengan susu creamy." },
+            { id: 6, name: "Matcha Zen Breeze", price: "Rp 40k", category: "drinks", image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=400&q=80", desc: "Bubuk matcha asli Jepang dengan sensasi mint yang menyegarkan." }
+        ];
+
+        // Function to render menu
+        function filterMenu(category) {
+            const container = document.getElementById('menu-container');
+            const tabs = document.querySelectorAll('.menu-tab');
+            
+            // Update tabs UI
+            tabs.forEach(tab => {
+                if(tab.innerText.toLowerCase() === category || (category === 'all' && tab.innerText.toLowerCase() === 'semua')) {
+                    tab.classList.remove('menu-tab-inactive');
+                    tab.classList.add('menu-tab-active');
+                } else {
+                    tab.classList.add('menu-tab-inactive');
+                    tab.classList.remove('menu-tab-active');
+                }
+            });
+
+            // Filter logic
+            const filtered = category === 'all' ? menuItems : menuItems.filter(item => item.category === category);
+            
+            container.innerHTML = filtered.map(item => `
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold text-lg">${item.name}</h4>
+                            <span class="text-amber-600 font-bold">${item.price}</span>
+                        </div>
+                        <p class="text-gray-500 text-sm leading-relaxed">${item.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Handle Form Submit
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Mengirim...";
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    this.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                } else {
+                    console.log(response);
+                    alert("Terjadi kesalahan: " + json.message);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert("Gagal mengirim reservasi.");
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Konfirmasi Reservasi";
+            });
+        });
+
+        // Sticky Nav Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 50) {
+                nav.classList.add('bg-white', 'text-slate-900', 'shadow-md', 'py-4');
+                nav.classList.remove('text-white', 'py-6');
+            } else {
+                nav.classList.remove('bg-white', 'text-slate-900', 'shadow-md', 'py-4');
+                nav.classList.add('text-white', 'py-6');
+            }
+        });
+
+        // Initialize
+        window.onload = () => filterMenu('all');
+    </script>
+</body>
+</html>
